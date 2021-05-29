@@ -9,12 +9,14 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-  web:
-    build: ./src/server
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - ./src/server:/code
     ports:
-      - "8000:8000"
-    depends_on:
-      - db
+      - "5432:5432"
+  # web:
+  #   build: ./src/server
+  #   command: python manage.py runserver 0.0.0.0:8000
+  #   volumes:
+  #     - ./src/server:/code
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - db
